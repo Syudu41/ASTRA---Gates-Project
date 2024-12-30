@@ -1,12 +1,7 @@
-# ASTRA - Gates-Project
-
-## ASTRA - Model Evaluation Made Simple
+# ASTRA (AI for STRategy Analysis)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
-
-# ASTRA (AI for STRategy Analysis)
-
 ASTRA is a collaborative research project between the University of Memphis and Carnegie Learning focused on leveraging AI to enhance our understanding of mathematical learning strategies.
 
 ## Project Overview
