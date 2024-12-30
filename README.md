@@ -60,6 +60,12 @@ The system is built on:
 - University of Memphis
 - Carnegie Learning (MATHia Platform)
 
+## Links
+
+- [🤗 Hugging Face Space](https://huggingface.co/spaces/suryadev1/astra)
+- [📄 Research Paper](https://drive.google.com/file/d/1lbEpg8Se1ugTtkjreD8eXIg7qrplhWan/view?pli=1)
+
+
 ## Note
 
 This is a demonstration version of the ASTRA system. The models are trained on specific mathematical domains and grade levels, with a current focus on ratio and proportions in 7th-grade mathematics.
@@ -77,8 +83,24 @@ This is a demonstration version of the ASTRA system. The models are trained on s
 3. Adjust parameters as needed
 4. Generate instant visualizations
 
+
 ---
 
 Made with ❤️ by the ASTRA team
+
+
+
+## Citation
+
+If you use ASTRA in your research, please cite our paper:
+
+```bibtex
+@article{astra2024,
+  title={ASTRA: AI for Strategy Analysis in Mathematics Education},
+  author={Author1 and Author2 and Author3},
+  journal={arXiv preprint arXiv:YourPaperID},
+  year={2024}
+}
+```
 
 
