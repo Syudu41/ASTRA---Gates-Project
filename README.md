@@ -5,97 +5,67 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
 
-ASTRA is a streamlined application for evaluating fine-tuned machine learning models with zero setup required. Get instant visualization of key metrics and performance indicators through an intuitive interface.
+# ASTRA (AI for STRategy Analysis)
 
-## 📋 Table of Contents
-- [Overview](#overview)
-- [Core Features](#core-features)
-- [Installation](#installation)
-- [Usage Instructions](#usage-instructions)
-- [Output](#output)
-- [Contributing](#contributing)
-- [License](#license)
+ASTRA is a collaborative research project between the University of Memphis and Carnegie Learning focused on leveraging AI to enhance our understanding of mathematical learning strategies.
 
-## 🎯 Overview
+## Project Overview
 
-This tool allows you to analyze pre-fine-tuned models without any file uploads or complex configuration. Simply run the analysis to get immediate visual insights including precision, recall metrics, and ROC curves.
+ASTRA utilizes a pre-trained model (based on a BERT-like architecture) to learn mathematics strategies from extensive data collected through Carnegie Learning's MATHia platform (formerly known as Cognitive Tutor). The data comes from hundreds of U.S. schools using this Intelligent Tutor as part of their core, blended math curriculum.
 
-## ✨ Core Features
+## Current Focus
 
-### Pre-configured Models
-Jump right into evaluation with our pre-fine-tuned models
+The current demonstration focuses on:
+- Domain: Ratio and Proportions
+- Grade Level: 7th Grade
+- Objective: Predicting strategies that lead to correct vs. incorrect solutions
 
-### Real-time Analysis
-View performance metrics and visualizations within seconds
+## Available Models
 
-### Interactive Interface
-Easily adjust parameters and see results instantly
+ASTRA offers three fine-tuned models:
 
-## 🚀 Installation
+1. **ASTRA-FT-HGR**
+   - Fine-tuned with data from schools with high graduation rates
+   - Specialized for high-performing school environments
 
-```bash
-# Clone the repository
-git clone https://github.com/suryadevi/astra.git
+2. **ASTRA-FT-LGR**
+   - Fine-tuned with data from schools with low graduation rates
+   - Focused on understanding challenges in struggling schools
 
-# Navigate to the project directory
-cd astra
+3. **ASTRA-FT-Full**
+   - Fine-tuned with a mixed dataset from both high and low graduation rate schools
+   - Provides a balanced perspective across different school environments
 
-# Install required packages
-pip install -r requirements.txt
-```
+## Usage Instructions
 
-## 🔨 Usage Instructions
+1. **Model Selection**
+   - Choose one of the three fine-tuned models based on your analysis needs
+   - Each model offers unique insights into student learning strategies
 
-1. Choose your analysis type:
-   - High Graduated Schools
-   - Low Graduate Schools
-   - Full dataset
+2. **Data Scope Configuration**
+   - Select the percentage of schools to include in your analysis
+   - Note: Larger percentages may require longer processing times
 
-2. Use the slider controls to adjust the Schools Percentage parameter
+3. **Results Analysis**
+   - Access the dashboard to view model results
+   - Results are segregated by school graduation rates (high vs. low)
+   - Analyze strategy predictions and their effectiveness
 
-3. Click submit to generate your analysis
+## Technical Details
 
-## 📊 Output
+The system is built on:
+- A BERT-like architecture for the base model
+- Fine-tuning using real-world student data from MATHia
+- Specialized training sets based on school graduation rates
 
-The tool provides two types of results:
+## Partners
 
-### Metrics
-View precision, recall, total schools analyzed, and other key performance indicators
+- University of Memphis
+- Carnegie Learning (MATHia Platform)
 
-### Visualization
-Examine model performance through an ROC curve plot
+## Note
 
-## 🌐 Getting Started
-
-Visit our Hugging Face Space at: `suryadevi/astra`
-
-For quick setup:
-1. Access the Hugging Face Space
-2. Follow the interface prompts
-3. Begin your analysis immediately
-
-## 🎯 Use Cases
-
-Perfect for:
-- Educational institutions analyzing graduation rates
-- Researchers comparing school performance
-- Data scientists evaluating model performance
-- Quick assessment of educational metrics
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 💬 Support
-
-For support:
-- Open an issue in the GitHub repository
-- Visit our Hugging Face Space
-- Contact the maintainers directly
+This is a demonstration version of the ASTRA system. The models are trained on specific mathematical domains and grade levels, with a current focus on ratio and proportions in 7th-grade mathematics.
 
 ## 📦 Dependencies
 
