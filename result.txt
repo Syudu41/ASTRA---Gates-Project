@@ -1,7 +1,3 @@
-avg_loss: 0.5820454359054565
-total_acc: 69.02834008097166
-precisions: 0.7233000757179396
-recalls: 0.6902834008097166
-f1_scores: 0.680564448931978
-time_taken_from_start: 33.72925329208374
-auc_score: 0.7527458335895701
+version https://git-lfs.github.com/spec/v1
+oid sha256:12f02f4c4828faf47ea47c7a46918e49e00aa05cacc8f05c4d7f4dd576c2d1a5
+size 224
