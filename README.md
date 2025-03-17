@@ -78,7 +78,7 @@ This is a demonstration version of the ASTRA system. The models are trained on s
 
 ## ⚡ Quick Start
 
-1. Visit `suryadevi/astra` on Hugging Face
+1. Visit `suryadev1/astra` on Hugging Face
 2. Select your desired analysis type
 3. Adjust parameters as needed
 4. Generate instant visualizations
