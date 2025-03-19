@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:90d421801958ec91222ce4f2a516eeabd4a8422896efa473090cd58b949ad530
-size 357
+[PAD]
+[UNK]
+[MASK]
+[CLS]
+[SEP]
+FirstRow1:2
+ThirdRow
+EquationAnswer
+FinalAnswer
+NumeratorQuantity1
+DenominatorFactor
+FinalAnswerDirection
+PercentChange
+SecondRow
+NumeratorFactor
+FirstRow2:2
+NumeratorLabel1
+FirstRow1:1
+DenominatorLabel1
+DenominatorQuantity1
+OptionalTask_2
+FinalAnswerLabel
+OptionalTask_1
+NumeratorQuantity2
+FirstRow2:1

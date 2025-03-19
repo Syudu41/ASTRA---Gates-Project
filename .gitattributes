@@ -47,4 +47,6 @@ ratio_proportion_change3_2223/sch_largest_100-coded/finetuning/test_info.txt fil
 ratio_proportion_change3_2223/sch_largest_100-coded/finetuning/test.txt filter=lfs diff=lfs merge=lfs -text
 ratio_proportion_change3_2223/sch_largest_100-coded/finetuning/fullTest/test_info.txt filter=lfs diff=lfs merge=lfs -text
 ratio_proportion_change3_2223/sch_largest_100-coded/finetuning/fullTest/test.txt filter=lfs diff=lfs merge=lfs -text
-*.txt filter=lfs diff=lfs merge=lfs -text
+ratio_proportion_change3_2223/sch_largest_100-coded/finetuning/fullTest/highGRschool10_/test_info.txt filter=lfs diff=lfs merge=lfs -text
+ratio_proportion_change3_2223/sch_largest_100-coded/finetuning/fullTest/highGRschool10_/test.txt filter=lfs diff=lfs merge=lfs -text
+ratio_proportion_change3_2223/sch_largest_100-coded/finetuning/fullTest/test_BKT.txt filter=lfs diff=lfs merge=lfs -text

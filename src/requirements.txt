@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f53f2b418f80d9955f7792a8105804e1095299882784a4733972d87e12853f9d
-size 129
+grpcio==1.59.3
+keras==2.15.0
+protobuf==4.25.1
+pyasn1==0.5.1
+scipy==1.4.1
+tensorboard==2.14.0
+tensorboard-data-server==0.7.2

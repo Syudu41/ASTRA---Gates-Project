@@ -221,9 +221,12 @@ class BERTFineTuneTrainer:
                 for key, value in final_msg.items():
                     file.write(f"{key}: {value}\n")
             print(final_msg)
+            # print(type(plabels),type(tlabels),plabels,tlabels) 
             fpr, tpr, thresholds = roc_curve(tlabels, positive_class_probs)
             with open("roc_data.pkl", "wb") as f:
                 pickle.dump((fpr, tpr, thresholds), f)
+            with open("roc_data2.pkl", "wb") as f:
+                pickle.dump((tlabels,positive_class_probs), f)                
             print(final_msg)
             f.close()
             with open(self.log_folder_path+f"/log_{phase}_finetuned_info.txt", 'a') as f1:
@@ -426,6 +429,7 @@ class BERTFineTuneCalibratedTrainer:
             auc_score = roc_auc_score(tlabels, positive_class_probs)
             end_time = time.time()
             final_msg = {
+                "this one":"this one",
                 "avg_loss": avg_loss / len(data_iter),
                 "total_acc": total_correct * 100.0 / total_element,
                 "precisions": precisions,
@@ -441,8 +445,7 @@ class BERTFineTuneCalibratedTrainer:
                 for key, value in final_msg.items():
                     file.write(f"{key}: {value}\n")
             with open("plabels.txt","w") as file:
-                file.write(plabels)
-                       
+                file.write(plabels)          
             print(final_msg)
             fpr, tpr, thresholds = roc_curve(tlabels, positive_class_probs)
             f.close()

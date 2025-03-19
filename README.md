@@ -29,9 +29,6 @@ ASTRA offers three fine-tuned models:
    - Fine-tuned with data from schools with low graduation rates
    - Focused on understanding challenges in struggling schools
 
-3. **ASTRA-FT-Full**
-   - Fine-tuned with a mixed dataset from both high and low graduation rate schools
-   - Provides a balanced perspective across different school environments
 
 ## Usage Instructions
 
