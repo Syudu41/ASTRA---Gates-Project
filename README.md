@@ -61,6 +61,11 @@ The system is built on:
 
 - [🤗 Hugging Face Space](https://huggingface.co/spaces/suryadev1/astra)
 - [📄 Research Paper](https://drive.google.com/file/d/1lbEpg8Se1ugTtkjreD8eXIg7qrplhWan/view?pli=1)
+- [🤗 Github: Astra demo](https://github.com/Syudu41/ASTRA---Gates-Project)
+- [🤗 Project Page](https://sites.google.com/view/astra-research/home)
+- [🤗 Path Analysis Tool](https://path-analysis.vercel.app/)
+- [🤗 Github: Path Analysis Tool](https://github.com/CarnegieLearningWeb/PathAnalysis)
+
 
 
 ## Note
