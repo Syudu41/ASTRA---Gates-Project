@@ -3,9 +3,9 @@ import numpy as np
 #mpl.use('Agg')
 import matplotlib.pyplot as plt
 
-import metrics
+import assests.metrics
 
-class ConfidenceHistogram(metrics.MaxProbCELoss):
+class ConfidenceHistogram(assests.metrics.MaxProbCELoss):
 
     def plot(self, output, labels, n_bins = 15, logits = True, title = None):
         super().loss(output, labels, n_bins, logits)
@@ -44,7 +44,7 @@ class ConfidenceHistogram(metrics.MaxProbCELoss):
             plt.title(title,fontsize=16)
         return plt
 
-class ReliabilityDiagram(metrics.MaxProbCELoss):
+class ReliabilityDiagram(assests.metrics.MaxProbCELoss):
 
     def plot(self, output, labels, n_bins = 15, logits = True, title = None):
         super().loss(output, labels, n_bins, logits)

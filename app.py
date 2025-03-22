@@ -45,7 +45,7 @@ def process_file(model_name,inc_slider,progress=Progress(track_tqdm=True)):
         finetune_task=None
     # Load the test_info file and the graduation rate file
     test_info = pd.read_csv(test_info_location, sep=',', header=None, engine='python')
-    grad_rate_data = pd.DataFrame(pd.read_pickle('school_grduation_rate.pkl'),columns=['school_number','grad_rate'])  # Load the grad_rate data
+    grad_rate_data = pd.DataFrame(pd.read_pickle('assests/school_grduation_rate.pkl'),columns=['school_number','grad_rate'])  # Load the grad_rate data
 
     # Step 1: Extract unique school numbers from test_info
     unique_schools = test_info[0].unique()
@@ -77,7 +77,7 @@ def process_file(model_name,inc_slider,progress=Progress(track_tqdm=True)):
     selected_rows_df2 = test.loc[indices]
 
     # Save the selected rows to a file
-    selected_rows_df2.to_csv('selected_rows.txt', sep='\t', index=False, header=False, quoting=3, escapechar=' ')
+    selected_rows_df2.to_csv('fileHandler/selected_rows.txt', sep='\t', index=False, header=False, quoting=3, escapechar=' ')
     # ✅ Get the first 20% and last 20% of instances for each student ID within selected schools
 
     selected_test_info = test_info.loc[indices]
@@ -97,10 +97,10 @@ def process_file(model_name,inc_slider,progress=Progress(track_tqdm=True)):
     last_20_percent_rows = test.loc[last_20_percent_indices]
 
     # Save the first 20% instances per student to a file
-    first_20_percent_rows.to_csv('selected_rows_first20.txt', sep='\t', index=False, header=False, quoting=3, escapechar=' ')
+    first_20_percent_rows.to_csv('fileHandler/selected_rows_first20.txt', sep='\t', index=False, header=False, quoting=3, escapechar=' ')
 
     # Save the last 20% instances per student to a file
-    last_20_percent_rows.to_csv('selected_rows_last20.txt', sep='\t', index=False, header=False, quoting=3, escapechar=' ')
+    last_20_percent_rows.to_csv('fileHandler/selected_rows_last20.txt', sep='\t', index=False, header=False, quoting=3, escapechar=' ')
 
     # select the graduation groups
     graduation_groups = [
@@ -114,7 +114,7 @@ def process_file(model_name,inc_slider,progress=Progress(track_tqdm=True)):
         "python", "new_test_saved_finetuned_model.py",
         "-workspace_name", "ratio_proportion_change3_2223/sch_largest_100-coded",
         "-finetune_task", finetune_task,
-        "-test_dataset_path","../../../../selected_rows.txt",
+        "-test_dataset_path","../../../../fileHandler/selected_rows.txt",
         # "-test_label_path","../../../../train_label.txt",
         "-finetuned_bert_classifier_checkpoint", 
         "ratio_proportion_change3_2223/sch_largest_100-coded/output/highGRschool10/bert_fine_tuned.model.ep42",
@@ -122,7 +122,7 @@ def process_file(model_name,inc_slider,progress=Progress(track_tqdm=True)):
         "-b",str(1000)
     ])
     progress(0.5,desc="Model execution completed!! Now performing analysis on the results")
-    with open("roc_data2.pkl", 'rb') as file:
+    with open("fileHandler/roc_data2.pkl", 'rb') as file:
         data = pickle.load(file)
     t_label=data[0]
     p_label=data[1]
@@ -392,25 +392,25 @@ def process_file(model_name,inc_slider,progress=Progress(track_tqdm=True)):
     # colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']
     colors = ["#FF6F61", "#6B5B95", "#88B04B", "#F7CAC9"]
     # print(opt1_ratios,opt2_ratios)
-    fig_scatter = go.Figure()
+    # fig_scatter = go.Figure()
 
-    fig_scatter.add_trace(go.Scatter(
-        x=final_total,
-        y=opt1_total,
-        mode='markers',
-        marker=dict(size=8, color='blue', opacity=0.7),
-        name="Student Data"
-    ))
+    # fig_scatter.add_trace(go.Scatter(
+    #     x=final_total,
+    #     y=opt1_total,
+    #     mode='markers',
+    #     marker=dict(size=8, color='blue', opacity=0.7),
+    #     name="Student Data"
+    # ))
 
-    # Update layout
-    fig_scatter.update_layout(
-        title="Scatter Plot: Final Total Attempts vs OptionalTask_1 Attempts",
-        title_x=0.5,
-        xaxis=dict(title="Final Total Attempts"),
-        yaxis=dict(title="OptionalTask_1 Total Attempts"),
-        font=dict(family="sans-serif", size=12, color="black"),
-        showlegend=True
-    )
+    # # Update layout
+    # fig_scatter.update_layout(
+    #     title="Scatter Plot: Final Total Attempts vs OptionalTask_1 Attempts",
+    #     title_x=0.5,
+    #     xaxis=dict(title="Final Total Attempts"),
+    #     yaxis=dict(title="OptionalTask_1 Total Attempts"),
+    #     font=dict(family="sans-serif", size=12, color="black"),
+    #     showlegend=True
+    # )
 
     # fig_scatter.show()
   # Generate pie chart for Task 1
@@ -501,7 +501,7 @@ def process_file(model_name,inc_slider,progress=Progress(track_tqdm=True)):
 
     
     result = {}
-    with open("result.txt", 'r') as file:
+    with open("fileHandler/result.txt", 'r') as file:
         for line in file:
             key, value = line.strip().split(': ', 1)
             # print(type(key))
@@ -512,7 +512,7 @@ def process_file(model_name,inc_slider,progress=Progress(track_tqdm=True)):
     result["ROC score of HGR"]=high_roc_auc
     result["ROC score of LGR"]=low_roc_auc
 # Create a plot
-    with open("roc_data.pkl", "rb") as f:
+    with open("fileHandler/roc_data.pkl", "rb") as f:
         fpr, tpr, _ = pickle.load(f)
     # print(fpr,tpr)
     roc_auc = auc(fpr, tpr)
@@ -612,14 +612,14 @@ def process_file(model_name,inc_slider,progress=Progress(track_tqdm=True)):
     "python", "new_test_saved_finetuned_model.py",
     "-workspace_name", "ratio_proportion_change3_2223/sch_largest_100-coded",
     "-finetune_task", finetune_task,
-    "-test_dataset_path","../../../../selected_rows_first20.txt",
+    "-test_dataset_path","../../../../fileHandler/selected_rows_first20.txt",
     # "-test_label_path","../../../../train_label.txt",
     "-finetuned_bert_classifier_checkpoint", 
     "ratio_proportion_change3_2223/sch_largest_100-coded/output/highGRschool10/bert_fine_tuned.model.ep42",
     "-e",str(1),
     "-b",str(1000)
 ])
-    with open("roc_data.pkl", "rb") as f:
+    with open("fileHandler/roc_data.pkl", "rb") as f:
         fpr, tpr, _ = pickle.load(f)
     # print(fpr,tpr)
     roc_auc_first_k = auc(fpr, tpr)
@@ -631,14 +631,14 @@ def process_file(model_name,inc_slider,progress=Progress(track_tqdm=True)):
     "python", "new_test_saved_finetuned_model.py",
     "-workspace_name", "ratio_proportion_change3_2223/sch_largest_100-coded",
     "-finetune_task", finetune_task,
-    "-test_dataset_path","../../../../selected_rows_last20.txt",
+    "-test_dataset_path","../../../../fileHandler/selected_rows_last20.txt",
     # "-test_label_path","../../../../train_label.txt",
     "-finetuned_bert_classifier_checkpoint", 
     "ratio_proportion_change3_2223/sch_largest_100-coded/output/highGRschool10/bert_fine_tuned.model.ep42",
     "-e",str(1),
     "-b",str(1000)
 ])
-    with open("roc_data.pkl", "rb") as f:
+    with open("fileHandler/roc_data.pkl", "rb") as f:
         fpr, tpr, _ = pickle.load(f)
     # print(fpr,tpr)
     roc_auc_last_k = auc(fpr, tpr)
@@ -667,8 +667,7 @@ def process_file(model_name,inc_slider,progress=Progress(track_tqdm=True)):
 
 
 
-    return text_output,text_output_sampled_auc,fig,fig_task1,fig_task2,fig_hist1,fig_scatter #,fig_hist2
-
+    return text_output,text_output_sampled_auc,fig,fig_task1,fig_task2,fig_hist1,fig_hist2
 # List of models for the dropdown menu
 
 # models = ["ASTRA-FT-HGR", "ASTRA-FT-LGR", "ASTRA-FT-FULL"]
@@ -679,8 +678,12 @@ content = """
 
 <h3 style="color: white; text-align: center">
     <a href="https://drive.google.com/file/d/1lbEpg8Se1ugTtkjreD8eXIg7qrplhWan/view" style="color: gr.themes.colors.red; text-decoration: none;">Link To Paper</a> | 
-    <a href="https://github.com/Syudu41/ASTRA---Gates-Project" style="color: #1E90FF; text-decoration: none;">GitHub</a> | 
-    <a href="https://sites.google.com/view/astra-research/home" style="color: #1E90FF; text-decoration: none;">Project Page</a>
+    <a href="https://github.com/Syudu41/ASTRA---Gates-Project" style="color: #1E90FF; text-decoration: none;">GitHub: Astra Demo</a> | 
+    <a href="https://sites.google.com/view/astra-research/home" style="color: #1E90FF; text-decoration: none;">Project Page</a> | 
+    <a href="https://path-analysis.vercel.app/" style="color: #1E90FF; text-decoration: none;">Path Analysis Tool</a> | 
+    <a href="https://github.com/CarnegieLearningWeb/PathAnalysis" style="color: #1E90FF; text-decoration: none;">Github: Path Analysis Tool</a> | 
+    
+    
 </h3>
 
 <p style="color: white;">Welcome to a demo of ASTRA. ASTRA is a collaborative research project between researchers at the 

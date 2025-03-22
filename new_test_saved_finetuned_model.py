@@ -13,8 +13,8 @@ from src.bert import BERT
 from src.seq_model import BERTSM
 from src.classifier_model import BERTForClassification, BERTForClassificationWithFeats
 # from src.new_finetuning.optim_schedule import ScheduledOptim
-import metrics, recalibration, visualization
-from recalibration import ModelWithTemperature
+import assests.metrics, assests.recalibration, assests.visualization
+from assests.recalibration import ModelWithTemperature
 import tqdm
 import sys
 import time
@@ -217,15 +217,15 @@ class BERTFineTuneTrainer:
                 "time_taken_from_start": end_time - self.start_time,
                 "auc_score":auc_score
             }
-            with open("result.txt", 'w') as file:
+            with open("fileHandler/result.txt", 'w') as file:
                 for key, value in final_msg.items():
                     file.write(f"{key}: {value}\n")
             print(final_msg)
             # print(type(plabels),type(tlabels),plabels,tlabels) 
             fpr, tpr, thresholds = roc_curve(tlabels, positive_class_probs)
-            with open("roc_data.pkl", "wb") as f:
+            with open("fileHandler/roc_data.pkl", "wb") as f:
                 pickle.dump((fpr, tpr, thresholds), f)
-            with open("roc_data2.pkl", "wb") as f:
+            with open("fileHandler/roc_data2.pkl", "wb") as f:
                 pickle.dump((tlabels,positive_class_probs), f)                
             print(final_msg)
             f.close()
@@ -441,7 +441,7 @@ class BERTFineTuneCalibratedTrainer:
                 # "predicted_labels": f"{plabels}",
                 "time_taken_from_start": end_time - self.start_time
             }
-            with open("result.txt", 'w') as file:
+            with open("fileHandler/result.txt", 'w') as file:
                 for key, value in final_msg.items():
                     file.write(f"{key}: {value}\n")
             with open("plabels.txt","w") as file:
