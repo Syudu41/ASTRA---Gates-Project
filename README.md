@@ -89,19 +89,6 @@ This is a demonstration version of the ASTRA system. The models are trained on s
 ---
 
 Made with ❤️ by the ASTRA team
-
-
-
-## Citation
-
-If you use ASTRA in your research, please cite our paper:
-
-```bibtex
-@article{astra2024,
-  title={ASTRA: AI for Strategy Analysis in Mathematics Education},
-  author={Author1 and Author2 and Author3},
-  journal={arXiv preprint arXiv:YourPaperID},
-  year={2024}
 }
 ```
 
