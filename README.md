@@ -89,7 +89,4 @@ This is a demonstration version of the ASTRA system. The models are trained on s
 ---
 
 Made with ❤️ by the ASTRA team
-}
-```
-
 
